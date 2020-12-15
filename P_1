@@ -1,0 +1,124 @@
+a = [1, 2, 3, 4]
+a
+
+a[2]
+
+dd = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+dd
+
+dd[0][2]
+
+"""
+
+**RANK** - A tensor's rank tells us **how many indexs** are needed to refer to a specific element within the tensor,
+whereas, **Axes** - An axes of a tensor is a **specific dimension** of a tensor. 
+
+**Lenght of axes** - The length of each axes tells us **how many indexes are available along each axis**.
+
+**Shape** - The shape of a tensor gives us the **length of each axis of the tensor.**
+
+"""
+
+import torch
+print(torch.__version__)
+
+dd = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+t = torch.tensor(dd)
+t
+
+type(t)
+
+t.shape
+
+"""
+**We can say - The torch.tensor(dd) has rank - 2 with shape of 3x3.**
+"""
+
+t = torch.tensor([[[2, 3, 4, 4],[2, 3, 4, 5]]])
+t.shape
+
+dd = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+dd[1]
+
+"""
+With tensors, the elements of the last axis are always __. (1) arrays, (2) tuples, (3) numbers, (4) tensors
+
+If we say that a tensor is a rank-2 tensor, we mean that the tensor has 2 dimension or equivalently, the tensor has two ____. (1) rows (2) elements (3) columns (4) axes.
+
+The rank of a tensor tells us how many ___ are required to access(refer to) a specific __ contained within the tensor data structure. (1) indices, element (2) indices, axis (3) elements, axis (4) rows, elements.
+
+The rank of a tensor refers to the number of __ present within the tensor. (1) rows, (2) columns, (3) dimensions (4) elements.
+
+
+Remember in case of CNN-
+The shape of the CNN input is typically len([A0,A1,A2,A3]) = 4, i.e. we have a rank-4 tensor with 4 axes. Each index in a tensor shape represents a specific axes and the value at each index gives us the lenght of this corresponding axis.
+
+A3 - number , where A0-A2 - multidimensional array.
+
+For images the raw data comes in the form of pixels that are represented by a number. [Batch size,Color Channel,Height(vertical),Width(horizontal)]
+
+After Convolution, [?,feature maps, H,W]
+
+**PyTorch - data structure.** 
+
+### PyTorch Tensors Explained - NN Programming
+
+- Tensor Class 
+    Tensors in PyTorch are represnted using torch.tensor class.
+- Tensor attributes 
+    t.dtype - type of data
+    t.device - 
+    t.layout - how tensor data is laid out 
+- Creation options using data
+
+"""
+
+
+import torch
+import numpy as np
+
+t = torch.Tensor()
+type(t)
+
+print(t.dtype)
+print(t.device)
+print(t.layout)
+
+device = torch.device('cuda:0')
+device
+
+#Example
+
+t1 = torch.tensor([1, 2, 2])
+t2 = torch.tensor([1.,2.,3.])
+
+print(t1.dtype)
+print(t2.dtype)
+
+print(t1+t2)
+
+t1 = torch.tensor([1, 2, 3])
+t2 = t1.cude()
+
+print(t1.device)
+print(t2.device)
+print(t1+t2)
+
+"""
+### Creating tensors from data 
+
+Primary ways are --
+1. torch.Tensor(data)
+2. torch.tensor(data)
+3. torch.as_tensor(data)
+4. torch.from_numpy(data)
+
+"""
+data = np.array([1,2,3])
+type(data)
+
+torch.Tensor(data)
+torch.tensor(data)
+torch.as_tensor(data)
+torch.from_numpy(data)
+
